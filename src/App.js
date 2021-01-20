@@ -60,10 +60,12 @@ const App = () => {
 
   const handleWireframe = event => {
     universe.cast.garnet.material.wireframe = true
+    universe.cast.lapizLazuli.material.wireframe = true
   }
 
   const handleSolid = event => {
     universe.cast.garnet.material.wireframe = false
+    universe.cast.lapizLazuli.material.wireframe = false
   }
 
   const handleMouseDown = event => {

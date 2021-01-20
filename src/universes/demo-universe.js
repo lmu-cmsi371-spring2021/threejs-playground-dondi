@@ -7,6 +7,7 @@
 import { Scene, PerspectiveCamera, WebGLRenderer } from 'three'
 
 import Garnet from '../cast/garnet'
+import LapizLazuli from '../cast/lapiz-lazuli'
 
 const DEFAULT_ROTATION_RATE = 0.01
 
@@ -19,6 +20,10 @@ const createDemoUniverse = ({ fieldOfView, width, height, nearPlane, farPlane })
 
   const garnet = new Garnet(0x00ff00)
   scene.add(garnet.mesh)
+
+  const lapizLazuli = new LapizLazuli(0x0000ff)
+  lapizLazuli.mesh.position.x += 2
+  scene.add(lapizLazuli.group)
 
   // Turning is a universe-specific behavior: you can decide what these can be.
   let turning = true
@@ -36,6 +41,7 @@ const createDemoUniverse = ({ fieldOfView, width, height, nearPlane, farPlane })
     if (turning) {
       garnet.mesh.rotation.x += DEFAULT_ROTATION_RATE
       garnet.mesh.rotation.y += DEFAULT_ROTATION_RATE
+      lapizLazuli.group.rotation.x += -DEFAULT_ROTATION_RATE
     }
 
     renderer.render(scene, camera)
@@ -48,7 +54,8 @@ const createDemoUniverse = ({ fieldOfView, width, height, nearPlane, farPlane })
     turn,
     stop,
     cast: {
-      garnet
+      garnet,
+      lapizLazuli
     }
   }
 }
