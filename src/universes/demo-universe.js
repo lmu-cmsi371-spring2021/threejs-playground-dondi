@@ -4,7 +4,7 @@
  *
  * The starter version of the scene manager is adapted from the introductory code provided by three.js.
  */
-import { Scene, PerspectiveCamera, WebGLRenderer } from 'three'
+import { Scene, PerspectiveCamera, WebGLRenderer, CameraHelper } from 'three'
 
 import Garnet from '../cast/garnet'
 import LapizLazuli from '../cast/lapiz-lazuli'
@@ -15,6 +15,11 @@ const createDemoUniverse = ({ fieldOfView, width, height, nearPlane, farPlane })
   const scene = new Scene()
   const camera = new PerspectiveCamera(fieldOfView, width / height, nearPlane, farPlane)
 
+  const altCamera = new PerspectiveCamera(fieldOfView, width / height, 0.5, 2)
+  altCamera.position.z = 3
+  const cameraHelper = new CameraHelper(altCamera)
+  scene.add(cameraHelper)
+
   const renderer = new WebGLRenderer()
   renderer.setSize(width, height)
 
@@ -22,7 +27,7 @@ const createDemoUniverse = ({ fieldOfView, width, height, nearPlane, farPlane })
   scene.add(garnet.mesh)
 
   const lapizLazuli = new LapizLazuli(0x0000ff)
-  lapizLazuli.mesh.position.x += 2
+  lapizLazuli.group.position.x += 2
   scene.add(lapizLazuli.group)
 
   // Turning is a universe-specific behavior: you can decide what these can be.

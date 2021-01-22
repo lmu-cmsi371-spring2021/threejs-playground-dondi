@@ -11,8 +11,8 @@ import './App.css'
 import { createDemoUniverse } from './universes/demo-universe'
 
 const DEFAULT_FIELD_OF_VIEW = 75
-const DEFAULT_NEAR_PLANE = 0.1
-const DEFAULT_FAR_PLANE = 1000
+const DEFAULT_NEAR_PLANE = 2
+const DEFAULT_FAR_PLANE = 8
 
 const DEFAULT_DISTANCE_FROM_ORIGIN = 5
 
