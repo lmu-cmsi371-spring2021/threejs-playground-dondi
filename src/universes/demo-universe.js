@@ -4,7 +4,7 @@
  *
  * The starter version of the scene manager is adapted from the introductory code provided by three.js.
  */
-import { Scene, PerspectiveCamera, WebGLRenderer, CameraHelper } from 'three'
+import { Scene, PerspectiveCamera, WebGLRenderer, CameraHelper, PointLight, AmbientLight } from 'three'
 
 import Garnet from '../cast/garnet'
 import LapizLazuli from '../cast/lapiz-lazuli'
@@ -22,6 +22,13 @@ const createDemoUniverse = ({ fieldOfView, width, height, nearPlane, farPlane })
 
   const renderer = new WebGLRenderer()
   renderer.setSize(width, height)
+
+  const light = new PointLight(0xffffff)
+  light.position.set(0, 5, 0)
+  scene.add(light)
+
+  const backgroundLight = new AmbientLight(0x404040)
+  scene.add(backgroundLight)
 
   const garnet = new Garnet(0x00ff00)
   scene.add(garnet.mesh)

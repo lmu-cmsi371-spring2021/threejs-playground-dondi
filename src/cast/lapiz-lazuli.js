@@ -3,7 +3,7 @@
  * This is a choice and isn’t required, but it does isolate internal changes/enhancements
  * to these specific “characters.”
  */
-import { CylinderGeometry, MeshDepthMaterial, Mesh, Group, AxesHelper } from 'three'
+import { CylinderGeometry, MeshLambertMaterial, Mesh, Group, AxesHelper } from 'three'
 
 /**
  * The use of a JavaScript “class” is also a design choice.
@@ -11,11 +11,11 @@ import { CylinderGeometry, MeshDepthMaterial, Mesh, Group, AxesHelper } from 'th
 class LapizLazuli {
   constructor() {
     this.geometry = new CylinderGeometry(0.5, 0.5, 0.5, 32)
-    this.material = new MeshDepthMaterial()
+    this.material = new MeshLambertMaterial({ color: 0x0000ff })
     this.mesh = new Mesh(this.geometry, this.material)
 
     this.geometryTop = new CylinderGeometry(0.5, 0.5, 0.5, 32)
-    this.materialTop = new MeshDepthMaterial()
+    this.materialTop = new MeshLambertMaterial({ color: 0x0000ff })
     this.meshTop = new Mesh(this.geometryTop, this.materialTop)
     this.meshTop.position.y += 1
 

@@ -3,7 +3,7 @@
  * This is a choice and isn’t required, but it does isolate internal changes/enhancements
  * to these specific “characters.”
  */
-import { BoxGeometry, MeshBasicMaterial, Mesh } from 'three'
+import { BoxGeometry, MeshPhongMaterial, Mesh } from 'three'
 
 /**
  * The use of a JavaScript “class” is also a design choice.
@@ -11,7 +11,7 @@ import { BoxGeometry, MeshBasicMaterial, Mesh } from 'three'
 class Garnet {
   constructor(color) {
     this.geometry = new BoxGeometry()
-    this.material = new MeshBasicMaterial({ color })
+    this.material = new MeshPhongMaterial({ color })
     this.mesh = new Mesh(this.geometry, this.material)
   }
 }
